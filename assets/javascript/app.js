@@ -10,7 +10,22 @@
             key:"8b5dcaf7cdfb9c46221d492eec6560c571d6ec218b2485c54075ab7840fa77f9"
         },
         method: "POST"
-      }).then(function(response) {
+      }).then(function(walmart_response) {
         // Get reference to existing tbody element, create a new table row element
-          console.log(response)
+          console.log(walmart_response);
       });
+
+      var bestbuy_query = 'ipod';
+      var bestbuy_apiKey = 'N45Lkw1tBElVvgFZZmAYoPaw';
+      var bestbuy_queryURL = 'https://api.bestbuy.com/v1/products((search=' + bestbuy_query +'))?apiKey=' + bestbuy_apiKey + '&format=json';
+  
+      $.ajax({
+        url: bestbuy_queryURL,
+        method: 'GET'
+      }).then(function(bestbuy_response) {
+        // Get reference to existing tbody element, create a new table row element
+          console.log(bestbuy_response);
+      });
+
+
+
