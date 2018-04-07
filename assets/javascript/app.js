@@ -12,7 +12,8 @@
         method: "POST"
       }).then(function(walmart_response) {
         // Get reference to existing tbody element, create a new table row element
-          console.log(walmart_response);
+          console.log("walmart", walmart_response);
+          console.log("walmart items", walmart_response.items);
       });
 
       var bestbuy_query = 'ipod';
@@ -24,7 +25,8 @@
         method: 'GET'
       }).then(function(bestbuy_response) {
         // Get reference to existing tbody element, create a new table row element
-          console.log(bestbuy_response);
+          console.log("best buy", bestbuy_response);
+          console.log("best buy products", bestbuy_response.products);
       });
 
 
