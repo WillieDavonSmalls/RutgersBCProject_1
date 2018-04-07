@@ -38,6 +38,7 @@
 
           const{products} = bestbuy_response; 
 
+          
           for (i = 0; i < 5; i++) {
             console.log("item " + i +":  "+ products[i].name, "sales price:  " + products[i].salePrice, "medium image:   " + products[i].image)
         }
