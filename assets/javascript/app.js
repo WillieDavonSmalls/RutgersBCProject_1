@@ -26,14 +26,14 @@
 
       var bestbuy_query = productSearch;
       var bestbuy_apiKey = 'N45Lkw1tBElVvgFZZmAYoPaw';
-      var bestbuy_queryURL = 'https://api.bestbuy.com/v1/products((search=' + bestbuy_query +'))?apiKey=' + bestbuy_apiKey + '&format=json';
+      var bestbuy_queryURL = 'https://api.bestbuy.com/v1/products((search=' + bestbuy_query + '))?apiKey=' + bestbuy_apiKey + '&format=json';
   
       $.ajax({
         url: bestbuy_queryURL,
         method: 'GET'
       }).then(function(bestbuy_response) {
         // Get reference to existing tbody element, create a new table row element
-          console.log("best buy", bestbuy_response);
+          //console.log("best buy", bestbuy_response);
           //console.log("best buy products", bestbuy_response.products);
 
           const{products} = bestbuy_response; 
