@@ -480,13 +480,19 @@ color:white;
     border-radius: 5px;
     box-shadow: 1px 1px #fcfcfc;
 }
-
+/* 
 .discount-column{
+    width: 12%;
+    text-align: center;
+} */
+
+.photo-column{
     width: 12%;
     text-align: center;
 }
 
 .price-column {
+   
     width:12%;
 }
 
@@ -495,10 +501,10 @@ color:white;
 }
 
 .vendor-logo {
-    margin-top: -20px;
+   
     float: right;
     position: relative;
-    top: 10px;
+    top: -30px;
     width: 92px;
     /* text-align: center; */
 }
