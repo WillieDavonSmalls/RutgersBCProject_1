@@ -21,8 +21,17 @@
           const{items} = walmart_response; 
          
          for (i = 0; i < 5; i++) {
-            console.log("item " + i +":  "+ items[i].name, "sales price:  " + items[i].salePrice, "medium image:   " + items[i].mediumImage)
-            $('#customers').append('<tr><td>'+items[i].name + '<img class="result-thumbnail" src="'+ items[i].mediumImage +'" alt = "product" width="140" height="100"></td>' + walmart_logo + '<td>$'+items[i].salePrice+'</td></tr>');
+            //console.log("item " + i +":  "+ items[i].name, "sales price:  " + items[i].salePrice, "medium image:   " + items[i].mediumImage)
+            $('#customers').append(
+              '<tr><td>' 
+              + items[i].name + 
+              '</td><td><img class="result-thumbnail" src="'
+              + items[i].mediumImage +
+              '" alt = "product" width="140" height="100"></td>' 
+              + walmart_logo + 
+              '<td>$' 
+              + items[i].salePrice + 
+              '</td></tr>');
         }
       });
 
@@ -44,8 +53,17 @@
           
           
           for (i = 0; i < 5; i++) {
-            console.log("item " + i +":  "+ products[i].name, "sales price:  " + products[i].salePrice, "medium image:   " + products[i].image)
-            $('#customers').append('<tr><td>'+products[i].name + '<img class="result-thumbnail" src="'+ products[i].image +'" alt = "product" width="140" height="100"></td>' + bestbuy_logo + '<td>$'+products[i].salePrice+'</td></tr>');
+            //console.log("item " + i +":  "+ products[i].name, "sales price:  " + products[i].salePrice, "medium image:   " + products[i].image)
+            $('#customers').append(
+              '<tr><td>'
+              + products[i].name + 
+              '</td><td><img class="result-thumbnail" src="'
+              + products[i].image +
+              '" alt = "product" width="140" height="100"></td>' 
+              + bestbuy_logo + 
+              '<td>$' 
+              + products[i].salePrice +
+              '</td></tr>');
 
           }
       });
