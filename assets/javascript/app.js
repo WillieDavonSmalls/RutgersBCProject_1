@@ -7,7 +7,7 @@
 
 
       productSearch = $('#productSearch').val();
-      $("#customers").find("tr:gt(0)").remove();
+      $("#customers").children( 'tr:not(:first)' ).remove();
 
       //if Product Search is not Empty execute this API calls
       if(productSearch != ''){
@@ -16,7 +16,8 @@
           searchWalmart(productSearch);
         }
         catch(error){
-  
+          var errorMessage = error.name + ' ' + error.message;
+          console.log(errorMessage);
         }
         
         //Try BestBuy API call
@@ -24,6 +25,8 @@
           searchBestBuy(productSearch);
         }
         catch(error){  
+          var errorMessage = error.name + ' ' + error.message;
+          console.log(errorMessage);
         }
       } 
      });
@@ -56,6 +59,16 @@
          
          for (i = 0; i < 5; i++) {
             //console.log("item " + i +":  "+ items[i].name, "sales price:  " + items[i].salePrice, "medium image:   " + items[i].mediumImage)
+
+            var walmartImage = items[i].mediumImage;
+
+            if(walmartImage != null){
+              walmartImage = walmartImage;
+            }
+            else{
+              walmartImage = 'http://via.placeholder.com/140x100';
+            }
+
             $('#customers').append(
               '<tr><td>' 
               + items[i].name + 
@@ -93,11 +106,21 @@
           
           for (i = 0; i < 5; i++) {
             //console.log("item " + i +":  "+ products[i].name, "sales price:  " + products[i].salePrice, "medium image:   " + products[i].image)
+            
+            var bestBuyImage = products[i].image;
+
+            if(bestBuyImage != null){
+              bestBuyImage = bestBuyImage;
+            }
+            else{
+              bestBuyImage = 'http://via.placeholder.com/140x100';
+            }
+            
             $('#customers').append(
               '<tr><td>'
               + products[i].name + 
               '</td><td><img class="result-thumbnail" src="'
-              + products[i].image +
+              + bestBuyImage +
               '" alt = "product" width="140"></td>' 
               + bestbuy_logo + 
               '<td>$' 
