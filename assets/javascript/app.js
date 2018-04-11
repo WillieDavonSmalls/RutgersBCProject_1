@@ -57,6 +57,7 @@
           //constructor for items 
           const{items} = walmart_response; 
          
+         //for loop to loop through wal-mart products 
          for (i = 0; i < 5; i++) {
             //console.log("item " + i +":  "+ items[i].name, "sales price:  " + items[i].salePrice, "medium image:   " + items[i].mediumImage)
 
@@ -104,6 +105,7 @@
           //constructor for products
           const{products} = bestbuy_response; 
           
+          //for loop through Best Buy API
           for (i = 0; i < 5; i++) {
             //console.log("item " + i +":  "+ products[i].name, "sales price:  " + products[i].salePrice, "medium image:   " + products[i].image)
             
@@ -126,7 +128,6 @@
               '<td>$' 
               + products[i].salePrice +
               '</td></tr>');
-
           }
       });
     }
