@@ -27,7 +27,7 @@
               + items[i].name + 
               '</td><td><img class="result-thumbnail" src="'
               + items[i].mediumImage +
-              '" alt = "product" width="140" height="100"></td>' 
+              '" alt = "product" width="140"></td>' 
               + walmart_logo + 
               '<td>$' 
               + items[i].salePrice + 
@@ -59,7 +59,7 @@
               + products[i].name + 
               '</td><td><img class="result-thumbnail" src="'
               + products[i].image +
-              '" alt = "product" width="140" height="100"></td>' 
+              '" alt = "product" width="140"></td>' 
               + bestbuy_logo + 
               '<td>$' 
               + products[i].salePrice +
