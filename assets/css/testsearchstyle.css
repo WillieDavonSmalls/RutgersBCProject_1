@@ -502,9 +502,7 @@ color:white;
 
 .vendor-logo {
    
-    float: right;
-    position: relative;
-    top: -30px;
+   
     width: 92px;
     /* text-align: center; */
 }
@@ -513,15 +511,17 @@ color:white;
     width: 9%;
 }
 
+td {
+    vertical-align: middle;
+}
+
 td:nth-child(1) {
-    position: relative;
-    top: -65px;
+    vertical-align: top;
 }
-/* td:nth-child(3) {
-    position: relative;
-    top: 10px;
-} */
+td:nth-child(3) {
+    vertical-align: middle;
+}
 td:nth-child(4) {
-    position: relative;
-    top: -65px;
+    vertical-align: middle;
 }
+
