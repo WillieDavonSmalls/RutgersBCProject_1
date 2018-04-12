@@ -6,6 +6,108 @@ font-family: 'Open Sans', sans-serif;
 
 */
 
+/* Index Page Styles */
+
+
+
+#index-h1 {
+    position:relative;
+    top: 50px;
+    text-align: center;
+    letter-spacing: -4px;
+    font-size: 100px;
+    text-shadow: 1px 1px #5E5E5E;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+    color: #828282;
+}
+
+#index-header {
+    margin-top: 25px;
+    margin-bottom:50px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+#index-search-container {
+    background-color: #F2F2F2;
+    background-image: url("../images/dust.png");
+    margin-top:-25px;
+    width: 85%;
+    height: 375px;
+    margin: 0 auto;
+    border-radius: 7px;
+
+}
+#index-form  {
+    
+    color: #777;
+    margin: 0 auto;
+    border-radius: 6px;
+    width: 95%;
+    padding-top: -15px;
+    font-size: 88px;
+}
+
+#index-input {
+    color: #777;
+    width: 95%;
+    height:60px;
+    border-radius: 10px;
+    font-size: 48px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    box-shadow: 3px 3px #999;
+    padding: 15px;
+    border: #999 solid 0.3px;
+}
+
+#index-input:hover{
+    box-shadow: 2px 2px 5px #333;
+}
+
+
+#index-search-button{
+    
+    letter-spacing: 2px;
+    position: relative;
+    margin-top: 10px;
+    float: right;
+    background-color: #fcfcfc;
+    background: linear-gradient(#fcfcfc, #fff);
+    color: #fff;
+    font-size: 35px;
+    text-align: center;
+    width: 200px;
+    padding:5px;
+
+}
+
+
+
+
+
+
+#index-search-button {
+    
+    padding: 5px;
+    letter-spacing: 2px;
+    position: relative;
+    margin-top: 10px;
+    float: right;
+    background-color: #fcfcfc;
+    color: #999;
+    font-size: 35px;
+    text-align: center;
+    width: 200px;
+    padding:15px;
+    border-radius: 10px;
+    
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+
+}
+
 
 
 body {
@@ -106,13 +208,13 @@ body {
   }
 
 
-header {
+#search-results-page-header {
     margin-top: 25px;
     margin-bottom:50px;
     padding-left: 25px;
     padding-right: 25px;
 }
-h1 {
+#navbar-h1 {
     position:relative;
     float:left;
     text-align: center;
@@ -523,5 +625,6 @@ td:nth-child(3) {
 }
 td:nth-child(4) {
     vertical-align: middle;
+    font-style: bold;
 }
 
