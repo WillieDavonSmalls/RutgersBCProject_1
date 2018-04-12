@@ -6,107 +6,8 @@ font-family: 'Open Sans', sans-serif;
 
 */
 
-/* Index Page Styles */
 
 
-
-#index-h1 {
-    position:relative;
-    top: 50px;
-    text-align: center;
-    letter-spacing: -4px;
-    font-size: 100px;
-    text-shadow: 1px 1px #5E5E5E;
-    font-family: 'Roboto Condensed', sans-serif;
-    font-weight: 700;
-    color: #828282;
-}
-
-#index-header {
-    margin-top: 25px;
-    margin-bottom:50px;
-    padding-left: 25px;
-    padding-right: 25px;
-}
-
-#index-search-container {
-    background-color: #F2F2F2;
-    background-image: url("../images/dust.png");
-    margin-top:-25px;
-    width: 85%;
-    height: 375px;
-    margin: 0 auto;
-    border-radius: 7px;
-
-}
-#index-form  {
-    
-    color: #777;
-    margin: 0 auto;
-    border-radius: 6px;
-    width: 95%;
-    padding-top: -15px;
-    font-size: 88px;
-}
-
-#index-input {
-    color: #777;
-    width: 95%;
-    height:60px;
-    border-radius: 10px;
-    font-size: 48px;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
-    box-shadow: 3px 3px #999;
-    padding: 15px;
-    border: #999 solid 0.3px;
-}
-
-#index-input:hover{
-    box-shadow: 2px 2px 5px #333;
-}
-
-
-#index-search-button{
-    
-    letter-spacing: 2px;
-    position: relative;
-    margin-top: 10px;
-    float: right;
-    background-color: #fcfcfc;
-    background: linear-gradient(#fcfcfc, #fff);
-    color: #fff;
-    font-size: 35px;
-    text-align: center;
-    width: 200px;
-    padding:5px;
-
-}
-
-
-
-
-
-
-#index-search-button {
-    
-    padding: 5px;
-    letter-spacing: 2px;
-    position: relative;
-    margin-top: 10px;
-    float: right;
-    background-color: #fcfcfc;
-    color: #999;
-    font-size: 35px;
-    text-align: center;
-    width: 200px;
-    padding:15px;
-    border-radius: 10px;
-    
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
-
-}
 
 
 
@@ -334,7 +235,7 @@ h3 {
     width: 85%;
     height: 180px;
     margin: 0 auto;
-    border-radius: 15px 15px 0.2px 0.2px;
+    border-radius: 15px 15px 7.5px 7.5px;
 
 }
 
@@ -384,7 +285,7 @@ h3 {
 
 
 form  {
-    
+   
     color: #777;
     margin: 0 auto 0 auto;
     border-radius: 6px;
@@ -516,7 +417,7 @@ input:hover{
     background-image: url("../images/dust.png");
     width: 85%;
     margin: 0 auto;
-    border-radius: 0.2px 0.2px 15px 15px ;
+    border-radius: 7px 7px 15px 15px ;
 
 }
 
@@ -525,6 +426,7 @@ input:hover{
 
 
 #customers {
+    
     position: relative;
     top: -35px;
     font-family: 'Open Sans', sans-serif;
@@ -627,4 +529,312 @@ td:nth-child(4) {
     vertical-align: middle;
     font-style: bold;
 }
+
+
+
+
+
+
+/* Index Page Styles */
+
+
+
+#index-h1 {
+    position:relative;
+    top: 50px;
+    text-align: center;
+    letter-spacing: -4px;
+    font-size: 100px;
+    text-shadow: 1px 1px #5E5E5E;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+    color: #828282;
+}
+
+#index-header {
+    margin-top: 25px;
+    margin-bottom:50px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+#index-search-container {
+    background-color: #F2F2F2;
+    background-image: url("../images/dust.png");
+    margin-top:-25px;
+    width: 85%;
+    height: 375px;
+    margin: 0 auto;
+    border-radius: 7px;
+
+}
+#index-form  {
+    position: relative;
+    top: 60px;
+    color: #777;
+    margin: 0 auto;
+    border-radius: 6px;
+    width: 95%;
+    padding-top: -15px;
+    font-size: 88px;
+}
+
+#index-input {
+    color: #777;
+    width: 95%;
+    height:60px;
+    border-radius: 10px;
+    font-size: 48px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    box-shadow: 3px 3px #999;
+    padding: 15px;
+    border: #999 solid 0.3px;
+}
+
+#index-input:hover{
+    box-shadow: 2px 2px 5px #333;
+}
+
+
+#index-search-button {
+    
+    letter-spacing: 2px;
+    position: relative;
+    margin-top: -50px;
+    float: right;
+    background-color: #fcfcfc;
+    background: linear-gradient(#fcfcfc, #fff);
+   
+    font-size: 35px;
+    text-align: center;
+    width: 200px;
+    color: #999;
+    font-size: 35px;
+    padding:15px;
+    border-radius: 15px;
+    
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+
+}
+
+
+
+/* Mouse over Effect for Index Page */
+
+
+
+.index-hvr-outline-out {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+  }
+  .index-hvr-outline-out:before {
+    content: '';
+    position: absolute;
+    border: #999 solid 0.5px;
+    border-radius: 10px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+    -webkit-transition-property: top, right, bottom, left;
+    transition-property: top, right, bottom, left;
+  }
+  .index-hvr-outline-out:hover:before, .index-hvr-outline-out:focus:before, .index-hvr-outline-out:active:before {
+    top: -8px;
+    right: -8px;
+    bottom: -8px;
+    left: -8px;
+  } 
+
+
+
+
+
+  /* Category Bins Styling Begins Here */
+
+  #bin-container{
+    width: 85%;
+    margin: 0 auto;
+    
+  }
+
+  #category-bins-h1{
+    letter-spacing:-3px;
+    position: relative;
+
+    padding: 0px;
+    font-family: 'Open Sans', sans-serif; 
+    font-weight: 300;
+    
+    color: #A4A4A4;
+    font-size: 88px;
+  }
+
+  .category-header{
+      background-color: #ddd;
+      width:40%;
+      height:55px;
+      border-radius: 10px 10px 0px 0px;
+  }
+
+  .category-header, .remove-bin {
+      display: inline-block;
+  }
+  .remove-bin {
+      float: right;
+    background-color: #333;
+    border-radius: 5px;
+    height: 35px;
+    width: 35px;
+    font-family: 'Open Sans', sans-serif; 
+    font-weight: 300;
+    
+    color: #A4A4A4;
+    font-size: 36px;
+    text-align:center;
+    opacity:0.1;
+}
+
+.remove-bin:hover{
+    opacity:1;
+    cursor: pointer;
+    
+}
+
+  #user-category{
+    font-family: 'Roboto Condensed', sans-serif; 
+    font-weight: 300;
+    color: #A4A4A4;
+    font-size: 53px;
+    text-align: center;
+    vertical-align: middle;
+    letter-spacing:-1.5px;
+    text-transform: uppercase;
+  }
+
+
+#bin-category-1 {
+
+    width: 100%;
+    margin: 0 auto;
+    overflow: auto;
+    height: 450px;
+    border-radius: 10px 10px 0px 0px;
+
+}
+
+#bin-table-header {
+    text-transform: uppercase;
+    border-radius: 10px 10px 0px 0px;
+    
+}
+
+.customers-bin {
+    position: relative;
+    top: 0px;
+    font-family: 'Open Sans', sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0 auto 0 auto;
+    border-radius: 10px 10px 0px 0px;
+    background-color: #F2F2F2;
+    
+
+} 
+    
+
+
+.customers-bin td, .customers-bin th {
+    
+    margin: 0 auto 0 auto;
+    border: 1px solid #ddd;
+    padding: 32px;
+    color: #777;
+    font-size: 22px;
+    font-weight:300;
+    
+}
+
+.customers-bin tr {
+    padding: 15px;
+    
+}
+
+.customers-bin tr:nth-child(even){background-color: #e8e7e7;}
+
+.customers-bin tr:hover {background-color: #fff;
+color:white;
+
+}
+
+.customers-bin th  {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background: linear-gradient(#595959, #5E5E5E);
+    color: #999;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing:0.4px;
+    
+    
+}
+
+
+
+#bin-table-header {
+    text-transform: uppercase;
+    
+}
+
+#category-bins-h1, #create-bin-button, #create-bin-form, #create-bin-input  {
+    display:inline-block;
+}
+
+#create-bin-form{
+    height: 25px;
+    margin:24px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+#create-bin-input{
+    float:right;
+    height: 25px;
+    width: 20%;
+    border-radius: 5px 5px 5px 5px;
+}
+
+#create-bin-button {
+    float: right;
+    margin:24px;
+    height:45px;
+    width: 175px;
+    background: linear-gradient(#595959, #5E5E5E);
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+#create-bin-P {
+    position: relative;
+    top:10px;
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+#create-bin-button:hover {
+   opacity: 1;
+}
+
 

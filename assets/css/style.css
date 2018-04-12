@@ -204,7 +204,6 @@ h3 {
 
 
 #index-form  {
-    
     color: #777;
     margin: 0 auto;
     border-radius: 6px;
@@ -256,7 +255,7 @@ h3 {
 
 
 
-#index-search-button {
+#index-search-button{
     
     padding: 5px;
     letter-spacing: 2px;
@@ -270,7 +269,6 @@ h3 {
     width: 200px;
     padding:15px;
     border-radius: 10px;
-    
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
 
@@ -314,6 +312,42 @@ h3 {
     transition-property: top, right, bottom, left;
   }
   .hvr-outline-out:hover:before, .hvr-outline-out:focus:before, .hvr-outline-out:active:before {
+    top: -8px;
+    right: -8px;
+    bottom: -8px;
+    left: -8px;
+  } 
+
+
+
+
+  /* Mouse over Effect for Index Page */
+
+
+
+.index-hvr-outline-out {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+  }
+  .index-hvr-outline-out:before {
+    content: '';
+    position: absolute;
+    border: #999 solid 0.5px;
+    border-radius: 10px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+    -webkit-transition-property: top, right, bottom, left;
+    transition-property: top, right, bottom, left;
+  }
+  .index-hvr-outline-out:hover:before, .index-hvr-outline-out:focus:before, .index-hvr-outline-out:active:before {
     top: -8px;
     right: -8px;
     bottom: -8px;
