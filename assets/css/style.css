@@ -112,7 +112,7 @@ header {
     padding-left: 25px;
     padding-right: 25px;
 }
-h1 {
+#index-h1 {
     position:relative;
     top: 50px;
     text-align: center;
@@ -146,7 +146,7 @@ h3 {
     font-size: 48px;
 }
 
-#main-search-container {
+#index-search-container {
     background-color: #F2F2F2;
     background-image: url("../images/dust.png");
     margin-top:-25px;
@@ -163,7 +163,6 @@ h3 {
 	   -moz-box-shadow: 0 6px 5px -6px #777;
 	        box-shadow: 0 6px 5px -6px #777;
 }
-
 
 
 
@@ -194,12 +193,17 @@ h3 {
 	right:10px;
     left:auto;
     -webkit-transform:skew(8deg) rotate(3deg);
+       -moz-transform:skew(8deg) rotate(3deg);
         -ms-transform:skew(8deg) rotate(3deg);
          -o-transform:skew(8deg) rotate(3deg);
             transform:skew(8deg) rotate(3deg);
 }
 
-form  {
+
+
+
+
+#index-form  {
     
     color: #777;
     margin: 0 auto;
@@ -209,7 +213,7 @@ form  {
     font-size: 88px;
 }
 
-input {
+#index-input {
     color: #777;
     width: 95%;
     height:60px;
@@ -222,7 +226,7 @@ input {
     border: #999 solid 0.3px;
 }
 
-input:hover{
+#index-input:hover{
     box-shadow: 2px 2px 5px #333;
 }
 
@@ -231,7 +235,7 @@ input:hover{
     margin: 0 auto;
 }
 
-#search-button{
+#index-search-button{
     
     letter-spacing: 2px;
     position: relative;
@@ -252,7 +256,7 @@ input:hover{
 
 
 
-#search-button {
+#index-search-button {
     
     padding: 5px;
     letter-spacing: 2px;
