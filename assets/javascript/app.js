@@ -3,15 +3,33 @@
     var productSearch = '';
 
 
-    $('#search-button').on('click', function() {
+    //Index search button 
+
+    
+    $('#index-search-button').on('click', function() {
+
+      productSearch = $('#index-input').val();
+
+      console.log(productSearch);
+      window.location = 'testsearch.html';
+
+      console.log(productSearch);
 
 
-      productSearch = $('#productSearch').val();
       //remove the previous search
       $("#customers").find("tr:gt(0)").remove();
 
       //if Product Search is not Empty execute this API calls
       if(productSearch != ''){
+        //Try BestBuy API call
+        try{
+          searchBestBuy(productSearch);
+        }
+        catch(error){  
+          var errorMessage = error.name + ' ' + error.message;
+          console.log(errorMessage);
+        }
+
         //Try Wal-mart API call
         try{
           searchWalmart(productSearch);
@@ -21,6 +39,19 @@
           console.log(errorMessage);
         }
         
+      } 
+     });
+
+
+
+    $('#search-button').on('click', function() {
+
+      productSearch = $('#productSearch').val();
+      //remove the previous search
+      $("#customers").find("tr:gt(0)").remove();
+
+      //if Product Search is not Empty execute this API calls
+      if(productSearch != ''){
         //Try BestBuy API call
         try{
           searchBestBuy(productSearch);
@@ -29,8 +60,21 @@
           var errorMessage = error.name + ' ' + error.message;
           console.log(errorMessage);
         }
+
+        //Try Wal-mart API call
+        try{
+          searchWalmart(productSearch);
+        }
+        catch(error){
+          var errorMessage = error.name + ' ' + error.message;
+          console.log(errorMessage);
+        }
+        
       } 
      });
+
+
+
 
 
     //missing image
