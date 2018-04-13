@@ -33,7 +33,9 @@
      });
 
 
-    
+    //missing image
+    var missingImage = 'assets/images/imagenotavailable.jpg';  
+        
     //walmart function 
     function searchWalmart(productSearch){
 
@@ -68,7 +70,7 @@
               walmartImage = walmartImage;
             }
             else{
-              walmartImage = 'http://via.placeholder.com/140x100';
+              walmartImage = missingImage;
             }
 
             $('#customers').append(
@@ -116,7 +118,7 @@
               bestBuyImage = bestBuyImage;
             }
             else{
-              bestBuyImage = 'http://via.placeholder.com/140x100';
+              bestBuyImage = missingImage;
             }
             
             $('#customers').append(
