@@ -7,7 +7,8 @@
 
 
       productSearch = $('#productSearch').val();
-      $("#customers").children( 'tr:not(:first)' ).remove();
+      //remove the previous search
+      $("#customers").find("tr:gt(0)").remove();
 
       //if Product Search is not Empty execute this API calls
       if(productSearch != ''){
