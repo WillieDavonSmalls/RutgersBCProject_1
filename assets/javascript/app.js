@@ -1,29 +1,28 @@
 
     
     var productSearch = '';
+    var productSearchLS = '';
 
 
-    //Index search button 
-
-    
+///////////////////////////////////////////////////////////// Index search button////////////////////////////////////////////////////// 
     $('#index-search-button').on('click', function() {
 
       productSearch = $('#index-input').val();
+      window.localStorage.setItem('productSearchLS', productSearch);
 
-      console.log(productSearch);
+      productSearchLS = localStorage.getItem("productSearchLS");
+
+      //go to testsearch page
       window.location = 'testsearch.html';
-
-      console.log(productSearch);
-
 
       //remove the previous search
       $("#customers").find("tr:gt(0)").remove();
 
       //if Product Search is not Empty execute this API calls
-      if(productSearch != ''){
+      if(productSearchLS != ''){
         //Try BestBuy API call
         try{
-          searchBestBuy(productSearch);
+          searchBestBuy(productSearchLS);
         }
         catch(error){  
           var errorMessage = error.name + ' ' + error.message;
@@ -32,16 +31,15 @@
 
         //Try Wal-mart API call
         try{
-          searchWalmart(productSearch);
+          searchWalmart(productSearchLS);
         }
         catch(error){
           var errorMessage = error.name + ' ' + error.message;
           console.log(errorMessage);
-        }
-        
+        } 
       } 
      });
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
     $('#search-button').on('click', function() {
@@ -72,8 +70,6 @@
         
       } 
      });
-
-
 
 
 
@@ -181,3 +177,89 @@
 
 
 
+////////////////////////////////////////////// Initial Cateogry Bins //////////////////////////////////////////////    
+
+var catBinsObj = {
+  Household : [], 
+  Skincare : [],
+  HairCare : [], 
+  Clothes : [], 
+  PartySupplies : []
+};
+
+localStorage.setItem("catBinsObjInitialLocal", JSON.stringify(catBinsObj));
+var catBinsObjRLS = localStorage.getItem("catBinsObjInitialLocal");
+
+var catBinsObj2 = JSON.parse(catBinsObjRLS);
+
+var catBinsArray = Object.keys(catBinsObj2);
+
+$.each(catBinsArray, function (index, value) {
+  $('#bins').append($('<option/>', { 
+      value: value,
+      text : value 
+  }));
+});      
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+for(var i = 0; i < catBinsArray.length ; i++)
+$('#div-for-category-bins').append(
+  '<div id="bin-container">' +
+'<div class="category-header effect8">' +
+  '<p id="user-category">' + catBinsArray[i] + '</p>' +
+'</div>' +
+'<div class="remove-bin hvr-grow-shadow">X</div>' +
+'<div id="bin-category-1">' +
+  '<table class="customers-bin">' +
+    '<tr id="bin-table-header-' + catBinsArray[i] + '">' +
+      '<th>Product</th>' +
+      '<th class="photo-column">Photo</th>' +
+      '<th class="vendor-column">Vendor</th>' +
+      '<th class="price-column">Price</th>' +
+    '</tr>' +
+  '</table>' +
+'</div>' +
+'</div>' );
+
+
+
+////////////////////////////////////////////// Modal //////////////////////////////////////////////
+      // Get the modal
+      var modal = document.getElementById('myModal');
+      
+      // Get the button that opens the modal
+      var btnModal = document.getElementById("create-bin-button");
+      
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+      
+      // When the user clicks the button, open the modal 
+      btnModal.onclick = function() {
+          modal.style.display = "block";
+      }
+      
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function(event) {
+          modal.style.display = "none";
+      }
+      
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+          if (event.target == modal) {
+              modal.style.display = "none";
+          }
+      }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////// Modal input /////////////////////////////////////////////
+
+var newCatBin = '' 
+
+$('#modal-submit').on('click', function() { 
+  newCatBin = $('#modal-input').val();
+  alert(newCatBin);
+  newCatBin = newCatBin.replace(/ /g,'')
+  catBinsObj[newCatBin] = [];
+  console.log(catBinsObj);
+});
