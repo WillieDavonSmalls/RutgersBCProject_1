@@ -179,9 +179,17 @@
 
 ////////////////////////////////////////////// Initial Cateogry Bins //////////////////////////////////////////////    
 
-var categoryBins = ['Household', 'Skincare','Hair Care', 'Clothes', 'Party Supplies', 'test'];
+var catBinsObj = {
+  Household : [], 
+  Skincare : [],
+  HairCare : [], 
+  Clothes : [], 
+  PartySupplies : []
+};
 
-$.each(categoryBins, function (index, value) {
+var catBinsArray = Object.keys(catBinsObj);
+
+$.each(catBinsArray, function (index, value) {
   $('#bins').append($('<option/>', { 
       value: value,
       text : value 
