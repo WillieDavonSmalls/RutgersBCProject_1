@@ -10,35 +10,12 @@
       productSearch = $('#index-input').val();
       window.localStorage.setItem('productSearchLS', productSearch);
 
-      productSearchLS = localStorage.getItem("productSearchLS");
-
       //go to testsearch page
-      window.location = 'testsearch.html';
+      window.location = 'testsearch.html';      
 
-      //remove the previous search
-      $("#customers").find("tr:gt(0)").remove();
-
-      //if Product Search is not Empty execute this API calls
-      if(productSearchLS != ''){
-        //Try BestBuy API call
-        try{
-          searchBestBuy(productSearchLS);
-        }
-        catch(error){  
-          var errorMessage = error.name + ' ' + error.message;
-          console.log(errorMessage);
-        }
-
-        //Try Wal-mart API call
-        try{
-          searchWalmart(productSearchLS);
-        }
-        catch(error){
-          var errorMessage = error.name + ' ' + error.message;
-          console.log(errorMessage);
-        } 
-      } 
-     });
+    });
+    
+      
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -180,11 +157,11 @@
 ////////////////////////////////////////////// Initial Cateogry Bins //////////////////////////////////////////////    
 
 var catBinsObj = {
-  Household : [], 
-  Skincare : [],
-  HairCare : [], 
-  Clothes : [], 
-  PartySupplies : []
+  Household : ['bleach'], 
+  Skincare : ['lotion'],
+  HairCare : ['shampoo','styling gel'], 
+  Clothes : ['jacket'], 
+  PartySupplies : ['water']
 };
 
 localStorage.setItem("catBinsObjInitialLocal", JSON.stringify(catBinsObj));
@@ -201,26 +178,80 @@ $.each(catBinsArray, function (index, value) {
   }));
 });      
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-for(var i = 0; i < catBinsArray.length ; i++)
-$('#div-for-category-bins').append(
-  '<div id="bin-container">' +
-'<div class="category-header effect8">' +
-  '<p id="user-category">' + catBinsArray[i] + '</p>' +
-'</div>' +
-'<div class="remove-bin hvr-grow-shadow">X</div>' +
-'<div id="bin-category-1">' +
-  '<table class="customers-bin">' +
-    '<tr id="bin-table-header-' + catBinsArray[i] + '">' +
-      '<th>Product</th>' +
-      '<th class="photo-column">Photo</th>' +
-      '<th class="vendor-column">Vendor</th>' +
-      '<th class="price-column">Price</th>' +
-    '</tr>' +
-  '</table>' +
-'</div>' +
-'</div>' );
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+var productsArray = [];
+
+for(var i = 0; i < catBinsArray.length ; i++){
+  $('#div-for-category-bins').append(
+    '<div id="bin-container">' +
+  '<div class="category-header effect8">' +
+    '<p id="user-category">' + catBinsArray[i] + '</p>' +
+  '</div>' +
+  '<div class="remove-bin hvr-grow-shadow">X</div>' +
+  '<div id="bin-category-1">' +
+    '<table class="customers-bin">' +
+      '<tr id="bin-table-header-' + catBinsArray[i] + '">' +
+        '<th>Product</th>' +
+        '<th class="photo-column">Photo</th>' +
+        '<th class="vendor-column">Vendor</th>' +
+        '<th class="price-column">Price</th>' +
+      '</tr>' +
+
+      '<tr>'+
+           '<td>Alfreds Futterkiste</td>' +
+           '<td>'+
+             '<img class="result-thumbnail" src="http://via.placeholder.com/140x100">'+
+           '</td>'+
+           '<td>'+
+             '<img class="vendor-logo" src="assets/images/walmart-logo-transparent.png" alt="walmart">'+
+           '</td>'+
+           '<td>$4.68</td>'+
+         '</tr>'+
+
+         '<tr>'+
+           '<td>Berglunds snabbköp</td>'+
+           '<td>'+
+             '<img class="result-thumbnail" src="http://via.placeholder.com/140x100">'+
+           '</td>'+
+           '<td>'+
+             '<img class="vendor-logo" src="assets/images/best-buy-logo-transparent.png" alt="bestbuy">'+
+           '</td>'+
+           '<td>$4.77</td>'+
+         '</tr>'+
+         
+    '</table>' +
+  '</div>' +
+  '</div>' );
+}
+
+
+// //loop through array of keys /// this is moving slowly.  
+for(var i = 0; i < catBinsArray.length; i++){
+  var array = [];
+  var binKey = catBinsArray[i];
+  array = catBinsObj2[binKey];
+  
+  if(array != ''){
+    console.log(binKey, array);
+    console.log()
+    var tag = "$('" + '#bin-table-header-'+ binKey + "')"
+    console.log(tag);
+
+    var filler = '<tr><td>' 
+    + 'filler' + 
+    '</td><td><img class="result-thumbnail" src="'
+    + 'filler' +
+    '" alt = "product" width="140"></td>' 
+    + 'filler' + 
+    '<td>$' 
+    + 'filler' +
+    '</td></tr>'
+
+
+  }
+  
+}
 
 
 
@@ -254,12 +285,12 @@ $('#div-for-category-bins').append(
 
 ///////////////////////////////////////////// Modal input /////////////////////////////////////////////
 
-var newCatBin = '' 
+// var newCatBin = ''; 
 
-$('#modal-submit').on('click', function() { 
-  newCatBin = $('#modal-input').val();
-  alert(newCatBin);
-  newCatBin = newCatBin.replace(/ /g,'')
-  catBinsObj[newCatBin] = [];
-  console.log(catBinsObj);
-});
+// $('#modal-submit').on('click', function() { 
+//   newCatBin = $('#modal-input').val();
+//   alert(newCatBin);
+//   newCatBin = newCatBin.replace(/ /g,'')
+//   catBinsObj[newCatBin] = [];
+//   console.log(catBinsObj);
+// });
