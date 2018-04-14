@@ -8,7 +8,9 @@
     $('#index-search-button').on('click', function() {
 
       productSearch = $('#index-input').val();
-      window.localStorage.setItem('productSearchLS', 'hello');
+      window.localStorage.setItem('productSearchLS', productSearch);
+
+      productSearchLS = localStorage.getItem("productSearchLS");
 
       //go to testsearch page
       window.location = 'testsearch.html';
@@ -197,6 +199,27 @@ $.each(catBinsArray, function (index, value) {
 });      
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+for(var i = 0; i < catBinsArray.length ; i++)
+$('#div-for-category-bins').append(
+  '<div id="bin-container">' +
+'<div class="category-header effect8">' +
+  '<p id="user-category">' + catBinsArray[i] + '</p>' +
+'</div>' +
+'<div class="remove-bin hvr-grow-shadow">X</div>' +
+'<div id="bin-category-1">' +
+  '<table class="customers-bin">' +
+    '<tr id="bin-table-header">' +
+      '<th>Product</th>' +
+      '<th class="photo-column">Photo</th>' +
+      '<th class="vendor-column">Vendor</th>' +
+      '<th class="price-column">Price</th>' +
+    '</tr>' +
+  '</table>' +
+'</div>' +
+'</div>' );
+
+
 
 ////////////////////////////////////////////// Modal //////////////////////////////////////////////
       // Get the modal
