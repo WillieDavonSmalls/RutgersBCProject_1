@@ -687,7 +687,7 @@ td:nth-child(4) {
 
   /* Category Bins Styling Begins Here */
 
-  #bin-container{
+  #bin-container, #bin-container-2, #bin-container-3, #bin-container-4, #bin-container-5{
     width: 85%;
     margin: 0 auto;
     
@@ -1054,3 +1054,25 @@ color:white;
     width:25%;
     height: 200px;
 } */
+
+
+/* Media Queries for index.html */
+@media screen and (max-width: 605px) {
+
+
+
+}
+
+
+/* Media Queries for search.html */
+@media screen and (max-width: 605px) {
+
+
+}
+
+/* Media Queries for categorybins.html */
+@media screen and (max-width: 605px) {
+
+
+
+}
