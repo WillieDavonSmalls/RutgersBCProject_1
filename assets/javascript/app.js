@@ -73,8 +73,6 @@
 
 
 
-
-
     //missing image
     var missingImage = 'assets/images/imagenotavailable.jpg';  
         
@@ -209,7 +207,7 @@ $('#div-for-category-bins').append(
 '<div class="remove-bin hvr-grow-shadow">X</div>' +
 '<div id="bin-category-1">' +
   '<table class="customers-bin">' +
-    '<tr id="bin-table-header">' +
+    '<tr id="bin-table-header-' + catBinsArray[i] + '">' +
       '<th>Product</th>' +
       '<th class="photo-column">Photo</th>' +
       '<th class="vendor-column">Vendor</th>' +
@@ -248,3 +246,14 @@ $('#div-for-category-bins').append(
           }
       }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////// Modal input /////////////////////////////////////////////
+
+var newCatBin = '' 
+
+$('#modal-submit').on('click', function() { 
+  newCatBin = $('#modal-input').val();
+  catBinsArray.push(newCatBin);
+  console.log(newCatBin);
+  catBinsArray;
+});
