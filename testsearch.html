@@ -12,7 +12,7 @@
     <title>Divvy Up - Price Tracker - Track prices on all your favorite items from all your favorite stores in this one stop shop!</title>
 </head>
 
-<body>
+<body onload="bodytestsearchOnLoad()">
     <div id="sticky-header" class="effect1">
             <a href="index.html">
             <h1 id="navbar-h1">DI<i>VV</i>Y UP<i>!</i>
@@ -64,6 +64,36 @@
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/javascript/app.js"></script>
+    <script>
+    function bodytestsearchOnLoad(){
+        var getInitialProduct = localStorage.getItem('productSearchLS');
+            
+        //remove the previous search
+        $("#customers").find("tr:gt(0)").remove();
+
+        //if Product Search is not Empty execute this API calls
+        if(getInitialProduct != ''){
+        //Try BestBuy API call
+        try{
+            searchBestBuy(getInitialProduct);
+        }
+        catch(error){  
+            var errorMessage = error.name + ' ' + error.message;
+            console.log(errorMessage);
+        }
+
+        //Try Wal-mart API call
+        try{
+            searchWalmart(getInitialProduct);
+        }
+        catch(error){
+            var errorMessage = error.name + ' ' + error.message;
+            console.log(errorMessage);
+        }       
+        }         
+
+    }
+    </script>
 </body>
 
 </html>

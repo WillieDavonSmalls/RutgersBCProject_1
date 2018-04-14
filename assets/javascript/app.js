@@ -10,35 +10,13 @@
       productSearch = $('#index-input').val();
       window.localStorage.setItem('productSearchLS', productSearch);
 
-      productSearchLS = localStorage.getItem("productSearchLS");
-
       //go to testsearch page
       window.location = 'testsearch.html';
+      
 
-      //remove the previous search
-      $("#customers").find("tr:gt(0)").remove();
-
-      //if Product Search is not Empty execute this API calls
-      if(productSearchLS != ''){
-        //Try BestBuy API call
-        try{
-          searchBestBuy(productSearchLS);
-        }
-        catch(error){  
-          var errorMessage = error.name + ' ' + error.message;
-          console.log(errorMessage);
-        }
-
-        //Try Wal-mart API call
-        try{
-          searchWalmart(productSearchLS);
-        }
-        catch(error){
-          var errorMessage = error.name + ' ' + error.message;
-          console.log(errorMessage);
-        } 
-      } 
-     });
+    });
+    
+      
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -254,12 +232,12 @@ $('#div-for-category-bins').append(
 
 ///////////////////////////////////////////// Modal input /////////////////////////////////////////////
 
-var newCatBin = '' 
+// var newCatBin = ''; 
 
-$('#modal-submit').on('click', function() { 
-  newCatBin = $('#modal-input').val();
-  alert(newCatBin);
-  newCatBin = newCatBin.replace(/ /g,'')
-  catBinsObj[newCatBin] = [];
-  console.log(catBinsObj);
-});
+// $('#modal-submit').on('click', function() { 
+//   newCatBin = $('#modal-input').val();
+//   alert(newCatBin);
+//   newCatBin = newCatBin.replace(/ /g,'')
+//   catBinsObj[newCatBin] = [];
+//   console.log(catBinsObj);
+// });
