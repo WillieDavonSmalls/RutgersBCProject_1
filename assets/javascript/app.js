@@ -1,29 +1,26 @@
 
     
     var productSearch = '';
+    var productSearchLS = '';
 
 
-    //Index search button 
-
-    
+///////////////////////////////////////////////////////////// Index search button////////////////////////////////////////////////////// 
     $('#index-search-button').on('click', function() {
 
       productSearch = $('#index-input').val();
+      window.localStorage.setItem('productSearchLS', 'hello');
 
-      console.log(productSearch);
+      //go to testsearch page
       window.location = 'testsearch.html';
-
-      console.log(productSearch);
-
 
       //remove the previous search
       $("#customers").find("tr:gt(0)").remove();
 
       //if Product Search is not Empty execute this API calls
-      if(productSearch != ''){
+      if(productSearchLS != ''){
         //Try BestBuy API call
         try{
-          searchBestBuy(productSearch);
+          searchBestBuy(productSearchLS);
         }
         catch(error){  
           var errorMessage = error.name + ' ' + error.message;
@@ -32,16 +29,15 @@
 
         //Try Wal-mart API call
         try{
-          searchWalmart(productSearch);
+          searchWalmart(productSearchLS);
         }
         catch(error){
           var errorMessage = error.name + ' ' + error.message;
           console.log(errorMessage);
-        }
-        
+        } 
       } 
      });
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
     $('#search-button').on('click', function() {
@@ -197,7 +193,7 @@
       }
       
       // When the user clicks on <span> (x), close the modal
-      span.onclick = function() {
+      span.onclick = function(event) {
           modal.style.display = "none";
       }
       
