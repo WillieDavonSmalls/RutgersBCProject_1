@@ -187,7 +187,12 @@ var catBinsObj = {
   PartySupplies : []
 };
 
-var catBinsArray = Object.keys(catBinsObj);
+localStorage.setItem("catBinsObjInitialLocal", JSON.stringify(catBinsObj));
+var catBinsObjRLS = localStorage.getItem("catBinsObjInitialLocal");
+
+var catBinsObj2 = JSON.parse(catBinsObjRLS);
+
+var catBinsArray = Object.keys(catBinsObj2);
 
 $.each(catBinsArray, function (index, value) {
   $('#bins').append($('<option/>', { 
@@ -253,7 +258,8 @@ var newCatBin = ''
 
 $('#modal-submit').on('click', function() { 
   newCatBin = $('#modal-input').val();
-  catBinsArray.push(newCatBin);
-  console.log(newCatBin);
-  catBinsArray;
+  alert(newCatBin);
+  newCatBin = newCatBin.replace(/ /g,'')
+  catBinsObj[newCatBin] = [];
+  console.log(catBinsObj);
 });
