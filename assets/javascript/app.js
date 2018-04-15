@@ -4,7 +4,7 @@
     var productSearchLS = '';
 
 
-///////////////////////////////////////////////////////////// Index search button////////////////////////////////////////////////////// 
+///////////////////////////////////////////////////////////// Index search button Local Storage ///////////////////////////////////////// 
     $('#index-search-button').on('click', function() {
 
       productSearch = $('#index-input').val();
@@ -47,8 +47,6 @@
         
       } 
      });
-
-
 
     //missing image
     var missingImage = 'assets/images/imagenotavailable.jpg';  
@@ -219,7 +217,7 @@ for(var i = 0; i < catBinsArray.length ; i++){
            '</td>'+
            '<td>$4.77</td>'+
          '</tr>'+
-         
+
     '</table>' +
   '</div>' +
   '</div>' );
