@@ -292,3 +292,16 @@ for(var i = 0; i < catBinsArray.length; i++){
 //   catBinsObj[newCatBin] = [];
 //   console.log(catBinsObj);
 // });
+
+///////////////////////////////////////////////// Added Cateogry to Bins  //////////////////////////////////////////
+var productToAddToBin;
+var categoryBinToAddProduct; 
+function addToCategoryBins(){
+  productToAddToBin = $('#productSearch').val();
+  categoryBinToAddProduct = $("#bins option:selected").text();
+
+  if(productToAddToBin && categoryBinToAddProduct != ''){
+  alert("Product: " + productToAddToBin + " added to Category Bin:" + categoryBinToAddProduct);
+  }
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
