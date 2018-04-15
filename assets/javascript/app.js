@@ -231,11 +231,7 @@ for(var i = 0; i < catBinsArray.length; i++){
   array = catBinsObj2[binKey];
   
   if(array != ''){
-    console.log(binKey, array);
-    console.log()
     var tag = "$('" + '#bin-table-header-'+ binKey + "')"
-    console.log(tag);
-
     var filler = '<tr><td>' 
     + 'filler' + 
     '</td><td><img class="result-thumbnail" src="'
