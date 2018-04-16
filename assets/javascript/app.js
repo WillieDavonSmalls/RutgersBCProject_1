@@ -23,7 +23,6 @@ $('#search-button').on('click', function() {
   if(productSearch != ''){
     //Try BestBuy API call
 
-
     try{
       searchBestBuy(productSearch);
     }
@@ -31,7 +30,6 @@ $('#search-button').on('click', function() {
       var errorMessage = error.name + ' ' + error.message;
       console.log(errorMessage);
     }
-
 
     //Try Wal-mart API call
     try{
@@ -41,7 +39,6 @@ $('#search-button').on('click', function() {
       var errorMessage = error.name + ' ' + error.message;
       console.log(errorMessage);
     }
-    
   } 
   });
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -177,33 +174,7 @@ $.each(catBinsArray, function (index, value) {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-
-// //loop through array of keys /// this is moving slowly.  
-for(var i = 0; i < catBinsArray.length; i++){
-  var array = [];
-  var binKey = catBinsArray[i];
-  array = catBinsObj2[binKey];
-  
-  if(array != ''){
-    var tag = "$('" + '#bin-table-header-'+ binKey + "')"
-    var filler = '<tr><td>' 
-    + 'filler' + 
-    '</td><td><img class="result-thumbnail" src="'
-    + 'filler' +
-    '" alt = "product" width="140"></td>' 
-    + 'filler' + 
-    '<td>$' 
-    + 'filler' +
-    '</td></tr>'
-
-
-  }
-  
-}
-
-
-
-////////////////////////////////////////////// Modal //////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////// Modal ///////////////////////////////////////////////////////////////////
       // Get the modal
       var modal = document.getElementById('myModal');
       
@@ -263,7 +234,7 @@ for(var i = 0; i < catBinsArray.length ; i++){
   '</div>' +
   '<div class="remove-bin hvr-grow-shadow">X</div>' +
   '<div id="bin-category-1">' +
-    '<table class="customers-bin">' +
+    '<table class="customers-bin" id="tbl-' + catBinsArray[i] + '">' +
       '<tr id="bin-table-header-' + catBinsArray[i] + '">' +
         '<th>Product</th>' +
         '<th class="photo-column">Photo</th>' +
@@ -271,29 +242,59 @@ for(var i = 0; i < catBinsArray.length ; i++){
         '<th class="price-column">Price</th>' +
       '</tr>' +
 
-      '<tr>'+
-           '<td>Alfreds Futterkiste</td>' +
-           '<td>'+
-             '<img class="result-thumbnail" src="http://via.placeholder.com/140x100">'+
-           '</td>'+
-           '<td>'+
-             '<img class="vendor-logo" src="assets/images/walmart-logo-transparent.png" alt="walmart">'+
-           '</td>'+
-           '<td>$4.68</td>'+
-         '</tr>'+
 
-         '<tr>'+
-           '<td>Berglunds snabbköp</td>'+
-           '<td>'+
-             '<img class="result-thumbnail" src="http://via.placeholder.com/140x100">'+
-           '</td>'+
-           '<td>'+
-             '<img class="vendor-logo" src="assets/images/best-buy-logo-transparent.png" alt="bestbuy">'+
-           '</td>'+
-           '<td>$4.77</td>'+
-         '</tr>'+
+      // '<tr>'+
+      //      '<td>Alfreds Futterkiste</td>' +
+      //      '<td>'+
+      //        '<img class="result-thumbnail" src="http://via.placeholder.com/140x100">'+
+      //      '</td>'+
+      //      '<td>'+
+      //        '<img class="vendor-logo" src="assets/images/walmart-logo-transparent.png" alt="walmart">'+
+      //      '</td>'+
+      //      '<td>$4.68</td>'+
+      //    '</tr>'+
+
+      //    '<tr>'+
+      //      '<td>Berglunds snabbköp</td>'+
+      //      '<td>'+
+      //        '<img class="result-thumbnail" src="http://via.placeholder.com/140x100">'+
+      //      '</td>'+
+      //      '<td>'+
+      //        '<img class="vendor-logo" src="assets/images/best-buy-logo-transparent.png" alt="bestbuy">'+
+      //      '</td>'+
+      //      '<td>$4.77</td>'+
+      //    '</tr>'+
 
     '</table>' +
   '</div>' +
   '</div>' );
 }
+
+// //loop through array of keys /// this is moving slowly. 
+var prodArrayFromCatBins = []; 
+for(var i = 0; i < catBinsArray.length; i++){
+  var prodArrayFromCatBins = [];
+  var binKey = catBinsArray[i];
+  prodArrayFromCatBins = catBinsObj2[binKey];
+  
+  if(prodArrayFromCatBins != ''){
+    //console.log(binKey, prodArrayFromCatBins);
+    var tag = "$('" + '#tbl-'+ binKey + "')"
+    var filler = 
+    "'" + '<tr>' +
+    //product
+    '<td>' + 'Product' + '</td>'+
+    //Product Image
+    '<td><img class="result-thumbnail" src='+ '"http://via.placeholder.com/140x100"' + ' alt = "product" width="140"> </td>' +
+    //Vendor
+    '<td><img class="vendor-logo" src="assets/images/best-buy-logo-transparent.png" alt="bestbuy"></td>'+ 
+    //Price
+    '<td>$4.77</td>'+
+    '</tr>' + "'"
+    
+    $('#tbl-' + binKey).append("'" + filler + "'");
+
+  }
+  
+}
+
