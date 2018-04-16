@@ -241,30 +241,6 @@ for(var i = 0; i < catBinsArray.length ; i++){
         '<th class="vendor-column">Vendor</th>' +
         '<th class="price-column">Price</th>' +
       '</tr>' +
-
-
-      // '<tr>'+
-      //      '<td>Alfreds Futterkiste</td>' +
-      //      '<td>'+
-      //        '<img class="result-thumbnail" src="http://via.placeholder.com/140x100">'+
-      //      '</td>'+
-      //      '<td>'+
-      //        '<img class="vendor-logo" src="assets/images/walmart-logo-transparent.png" alt="walmart">'+
-      //      '</td>'+
-      //      '<td>$4.68</td>'+
-      //    '</tr>'+
-
-      //    '<tr>'+
-      //      '<td>Berglunds snabbköp</td>'+
-      //      '<td>'+
-      //        '<img class="result-thumbnail" src="http://via.placeholder.com/140x100">'+
-      //      '</td>'+
-      //      '<td>'+
-      //        '<img class="vendor-logo" src="assets/images/best-buy-logo-transparent.png" alt="bestbuy">'+
-      //      '</td>'+
-      //      '<td>$4.77</td>'+
-      //    '</tr>'+
-
     '</table>' +
   '</div>' +
   '</div>' );
@@ -291,7 +267,7 @@ for(var i = 0; i < catBinsArray.length; i++){
     //Price
     '<td>$4.77</td>'+
     '</tr>' + "'"
-    
+
     $('#tbl-' + binKey).append("'" + filler + "'");
 
   }
