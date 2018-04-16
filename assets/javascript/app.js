@@ -1,54 +1,53 @@
-
-    
-    var productSearch = '';
-    var productSearchLS = '';
-
-
 ///////////////////////////////////////////////////////////// Index search button Local Storage ///////////////////////////////////////// 
-    $('#index-search-button').on('click', function() {
+var productSearch = '';
+var productSearchLS = '';
+$('#index-search-button').on('click', function() {
 
-      productSearch = $('#index-input').val();
-      window.localStorage.setItem('productSearchLS', productSearch);
+  productSearch = $('#index-input').val();
+  window.localStorage.setItem('productSearchLS', productSearch);
 
-      //go to testsearch page
-      window.location = 'testsearch.html';      
+  //go to testsearch page
+  window.location = 'testsearch.html';      
 
-    });
+});
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////// Initial Onclick for Search Button testsearch.html ///////////////////////////////////////// 
+$('#search-button').on('click', function() {
+
+  productSearch = $('#productSearch').val();
+  //remove the previous search
+  $("#customers").find("tr:gt(0)").remove();
+
+  //if Product Search is not Empty execute this API calls
+  if(productSearch != ''){
+    //Try BestBuy API call
+
+
+    try{
+      searchBestBuy(productSearch);
+    }
+    catch(error){  
+      var errorMessage = error.name + ' ' + error.message;
+      console.log(errorMessage);
+    }
+
+
+    //Try Wal-mart API call
+    try{
+      searchWalmart(productSearch);
+    }
+    catch(error){
+      var errorMessage = error.name + ' ' + error.message;
+      console.log(errorMessage);
+    }
     
-      
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-    $('#search-button').on('click', function() {
-
-      productSearch = $('#productSearch').val();
-      //remove the previous search
-      $("#customers").find("tr:gt(0)").remove();
-
-      //if Product Search is not Empty execute this API calls
-      if(productSearch != ''){
-        //Try BestBuy API call
-        try{
-          searchBestBuy(productSearch);
-        }
-        catch(error){  
-          var errorMessage = error.name + ' ' + error.message;
-          console.log(errorMessage);
-        }
-
-        //Try Wal-mart API call
-        try{
-          searchWalmart(productSearch);
-        }
-        catch(error){
-          var errorMessage = error.name + ' ' + error.message;
-          console.log(errorMessage);
-        }
-        
-      } 
-     });
-
-    //missing image
+  } 
+  });
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+/////////////////////////////////////////////////////////////// API Functions /////////////////////////////////////////////////////////////// 
+//missing image
     var missingImage = 'assets/images/imagenotavailable.jpg';  
         
     //walmart function 
@@ -149,10 +148,10 @@
           }
       });
     }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-
-////////////////////////////////////////////// Initial Cateogry Bins //////////////////////////////////////////////    
+/////////////////////////////////////////////////////////////// Initial Cateogry Bins ///////////////////////////////////////////////////////    
 
 var catBinsObj = {
   Household : ['bleach'], 
@@ -175,53 +174,8 @@ $.each(catBinsArray, function (index, value) {
       text : value 
   }));
 });      
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-var productsArray = [];
-
-for(var i = 0; i < catBinsArray.length ; i++){
-  $('#div-for-category-bins').append(
-    '<div id="bin-container">' +
-  '<div class="category-header effect8">' +
-    '<p id="user-category">' + catBinsArray[i] + '</p>' +
-  '</div>' +
-  '<div class="remove-bin hvr-grow-shadow">X</div>' +
-  '<div id="bin-category-1">' +
-    '<table class="customers-bin">' +
-      '<tr id="bin-table-header-' + catBinsArray[i] + '">' +
-        '<th>Product</th>' +
-        '<th class="photo-column">Photo</th>' +
-        '<th class="vendor-column">Vendor</th>' +
-        '<th class="price-column">Price</th>' +
-      '</tr>' +
-
-      '<tr>'+
-           '<td>Alfreds Futterkiste</td>' +
-           '<td>'+
-             '<img class="result-thumbnail" src="http://via.placeholder.com/140x100">'+
-           '</td>'+
-           '<td>'+
-             '<img class="vendor-logo" src="assets/images/walmart-logo-transparent.png" alt="walmart">'+
-           '</td>'+
-           '<td>$4.68</td>'+
-         '</tr>'+
-
-         '<tr>'+
-           '<td>Berglunds snabbköp</td>'+
-           '<td>'+
-             '<img class="result-thumbnail" src="http://via.placeholder.com/140x100">'+
-           '</td>'+
-           '<td>'+
-             '<img class="vendor-logo" src="assets/images/best-buy-logo-transparent.png" alt="bestbuy">'+
-           '</td>'+
-           '<td>$4.77</td>'+
-         '</tr>'+
-
-    '</table>' +
-  '</div>' +
-  '</div>' );
-}
 
 
 // //loop through array of keys /// this is moving slowly.  
@@ -279,25 +233,67 @@ for(var i = 0; i < catBinsArray.length; i++){
 
 ///////////////////////////////////////////// Modal input /////////////////////////////////////////////
 
-// var newCatBin = ''; 
 
-// $('#modal-submit').on('click', function() { 
-//   newCatBin = $('#modal-input').val();
-//   alert(newCatBin);
-//   newCatBin = newCatBin.replace(/ /g,'')
-//   catBinsObj[newCatBin] = [];
-//   console.log(catBinsObj);
-// });
 
-///////////////////////////////////////////////// Added Cateogry to Bins  //////////////////////////////////////////
+///////////////////////////////////////////////// Added Product to ßCateogry to Bins  //////////////////////////////////////////
 var productToAddToBin;
 var categoryBinToAddProduct; 
+
 function addToCategoryBins(){
   productToAddToBin = $('#productSearch').val();
   categoryBinToAddProduct = $("#bins option:selected").text();
 
   if(productToAddToBin && categoryBinToAddProduct != ''){
   alert("Product: " + productToAddToBin + " added to Category Bin:" + categoryBinToAddProduct);
+  catBinsObjRLS = localStorage.getItem("catBinsObjInitialLocal");
+  catBinsObjRLS = JSON.parse(catBinsObjRLS);
+
+  //push the value to the bin
+  catBinsObj2[categoryBinToAddProduct].push(productToAddToBin)
   }
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+for(var i = 0; i < catBinsArray.length ; i++){
+  $('#div-for-category-bins').append(
+    '<div id="bin-container">' +
+  '<div class="category-header effect8">' +
+    '<p id="user-category">' + catBinsArray[i] + '</p>' +
+  '</div>' +
+  '<div class="remove-bin hvr-grow-shadow">X</div>' +
+  '<div id="bin-category-1">' +
+    '<table class="customers-bin">' +
+      '<tr id="bin-table-header-' + catBinsArray[i] + '">' +
+        '<th>Product</th>' +
+        '<th class="photo-column">Photo</th>' +
+        '<th class="vendor-column">Vendor</th>' +
+        '<th class="price-column">Price</th>' +
+      '</tr>' +
+
+      '<tr>'+
+           '<td>Alfreds Futterkiste</td>' +
+           '<td>'+
+             '<img class="result-thumbnail" src="http://via.placeholder.com/140x100">'+
+           '</td>'+
+           '<td>'+
+             '<img class="vendor-logo" src="assets/images/walmart-logo-transparent.png" alt="walmart">'+
+           '</td>'+
+           '<td>$4.68</td>'+
+         '</tr>'+
+
+         '<tr>'+
+           '<td>Berglunds snabbköp</td>'+
+           '<td>'+
+             '<img class="result-thumbnail" src="http://via.placeholder.com/140x100">'+
+           '</td>'+
+           '<td>'+
+             '<img class="vendor-logo" src="assets/images/best-buy-logo-transparent.png" alt="bestbuy">'+
+           '</td>'+
+           '<td>$4.77</td>'+
+         '</tr>'+
+
+    '</table>' +
+  '</div>' +
+  '</div>' );
+}
