@@ -259,7 +259,7 @@ for(var i = 0; i < catBinsArray.length; i++){
       singleProduct = prodArrayFromCatBins[j];
 
       searchBestBuyGroup(binKey, singleProduct);
-      searchWalmartGroup(binKey, singleProduct);
+      //searchWalmartGroup(binKey, singleProduct);
 
 
     }
