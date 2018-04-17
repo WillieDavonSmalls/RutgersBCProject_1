@@ -375,6 +375,7 @@ function searchBestBuyGroup(binKey, singleProduct){
             +'</tr>';
       
             $('#tbl-' + binKey).append("'" + filler + "'");
+            console.log($('#tbl-' + binKey).append("'" + filler + "'"));
 
 
         }
