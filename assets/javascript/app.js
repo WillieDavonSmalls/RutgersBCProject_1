@@ -215,7 +215,7 @@ function addToCategoryBins(){
   categoryBinToAddProduct = $("#bins option:selected").text();
 
   if(productToAddToBin && categoryBinToAddProduct != ''){
-  alert("Product: " + productToAddToBin + " added to Category Bin:" + categoryBinToAddProduct);
+  //alert("Product: " + productToAddToBin + " added to Category Bin:" + categoryBinToAddProduct);
   catBinsObjRLS = localStorage.getItem("catBinsObjInitialLocal");
   catBinsObjRLS = JSON.parse(catBinsObjRLS);
 
