@@ -14,11 +14,17 @@
 
 <body onload="bodytestsearchOnLoad()">
     <div id="sticky-header" class="effect1">
-            <a href="index.html">
-            <h1 id="navbar-h1">DI<i>VV</i>Y UP<i>!</i>
+        <a href="index.html">
+            <h1 id="navbar-h1">DI
+                <i>VV</i>Y UP
+                <i>!</i>
             </h1>
         </a>
-        <div class="menu-bar hvr-bounce-to-bottom" id="my-products"><p class="top-navigation"><a href="categorybins.html">My Category Bins</a></p></div>
+        <div class="menu-bar hvr-bounce-to-bottom" id="my-products">
+            <p class="top-navigation">
+                <a href="categorybins.html">My Category Bins</a>
+            </p>
+        </div>
     </div>
 
     <header id="search-results-page-header">
@@ -26,16 +32,16 @@
     </header>
 
     <div id="main-search-container" class="effect8">
-        <div id="panel-heading"> 
+        <div id="panel-heading">
             <h3 id="panel-heading-h3">Track Prices on all your favorite items:</h3>
             <select id="bins">
-                <!-- Stored the categories in an array categoryBins -->   
-            </select> 
+                <!-- Stored the categories in an array categoryBins -->
+            </select>
 
-            
+
 
             <div id="add-to-bin">
-              <p id="add-to-bin-p">+Add to Category Bin</p>
+                <button type="button" onclick="addToCategoryBins()">Add to Category Bin</button>
             </div>
 
 
@@ -43,55 +49,58 @@
         </div>
         <form>
             <br>
-            <input class"search-field" type="text" name="firstname" value="" placeholder="Get the deal you've been looking for!" id="productSearch">
+            <input class "search-field" type="text" name="firstname" value="" placeholder="Get the deal you've been looking for!" id="productSearch">
             <br>
-             <div id="search-button" class="hvr-outline-out"> Search </div>
+            <div id="search-button" class="hvr-outline-out"> Search </div>
         </form>
     </div>
-    
-        <div id="main-search-results-container" class="effect8">
-                <table id="customers">
-                        
-                        <tr id="main-table-header">
-                          <th class="product-column">Product</th>
-                          <th class="photo-column">Photo</th>
-                          <th class="vendor-column">Vendor</th>
-                          <th class="price-column">Price</th>
-                        </tr>
-                      </table>
-        </div>
+
+    <div id="main-search-results-container" class="effect8">
+        <table id="customers">
+
+            <tr id="main-table-header">
+                <th class="product-column">Product</th>
+                <th class="photo-column">Photo</th>
+                <th class="vendor-column">Vendor</th>
+                <th class="price-column">Price</th>
+            </tr>
+        </table>
+    </div>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/javascript/app.js"></script>
     <script>
-    function bodytestsearchOnLoad(){
-        var getInitialProduct = localStorage.getItem('productSearchLS');
-            
-        //remove the previous search
-        $("#customers").find("tr:gt(0)").remove();
+        function bodytestsearchOnLoad() {
+            var getInitialProduct = localStorage.getItem('productSearchLS');
 
-        //if Product Search is not Empty execute this API calls
-        if(getInitialProduct != ''){
-        //Try BestBuy API call
-        try{
-            searchBestBuy(getInitialProduct);
-        }
-        catch(error){  
-            var errorMessage = error.name + ' ' + error.message;
-            console.log(errorMessage);
-        }
+            //remove the previous search
+            $("#customers").find("tr:gt(0)").remove();
 
-        //Try Wal-mart API call
-        try{
-            searchWalmart(getInitialProduct);
-        }
-        catch(error){
-            var errorMessage = error.name + ' ' + error.message;
-            console.log(errorMessage);
-        }       
-        }         
+            //if Product Search is not Empty execute this API calls
+            if (getInitialProduct != '') {
 
-    }
+                //Try BestBuy API call
+                try {
+                    searchBestBuy(getInitialProduct);
+                }
+                catch (error) {
+                    var errorMessage = error.name + ' ' + error.message;
+                    console.log(errorMessage);
+                }
+
+
+                //Try Wal-mart API call
+                try {
+                    searchWalmart(getInitialProduct);
+                }
+                catch (error) {
+                    var errorMessage = error.name + ' ' + error.message;
+                    console.log(errorMessage);
+                }
+            }
+
+        }            
+                        
     </script>
 </body>
 
