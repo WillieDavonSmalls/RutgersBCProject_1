@@ -350,7 +350,7 @@ function searchBestBuyGroup(binKey, singleProduct){
          
          //for loop to loop through wal-mart products 
          for (i = 0; i < 5; i++) {
-            //console.log("item " + i +":  "+ items[i].name, "sales price:  " + items[i].salePrice, "medium image:   " + items[i].mediumImage)
+            console.log("item " + i +":  "+ items[i].name, "sales price:  " + items[i].salePrice, "medium image:   " + items[i].mediumImage)
 
             var walmartImage = items[i].mediumImage;
 
