@@ -254,12 +254,12 @@ for(var i = 0; i < catBinsArray.length; i++){
   prodArrayFromCatBins = catBinsObj2[binKey];
   
   if(prodArrayFromCatBins != ''){
-    console.log(binKey, prodArrayFromCatBins);
+    //console.log(binKey, prodArrayFromCatBins);
     for(var j = 0; j < prodArrayFromCatBins.length; j++){
       singleProduct = prodArrayFromCatBins[j];
 
       searchBestBuyGroup(binKey, singleProduct);
-      //searchWalmartGroup(binKey, singleProduct);
+      searchWalmartGroup(binKey, singleProduct);
 
 
     }
@@ -328,7 +328,7 @@ function searchBestBuyGroup(binKey, singleProduct){
   function searchWalmartGroup(binKey, singleProduct){
 
     //variables for Wal-mart function 
-    var walmart_query = productSearch;
+    var walmart_query = singleProduct;
     var walmart_apiKey = 'wymapcqzkbzwruabx9t3cefx';
     var walmart_logo = '<td><img class="vendor-logo" src="assets/images/walmart-logo-transparent.png" alt="walmart"></td>'
 
@@ -376,8 +376,6 @@ function searchBestBuyGroup(binKey, singleProduct){
       
             $('#tbl-' + binKey).append("'" + filler + "'");
             console.log($('#tbl-' + binKey).append("'" + filler + "'"));
-
-
         }
       });
     }
