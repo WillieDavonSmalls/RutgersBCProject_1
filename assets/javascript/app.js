@@ -369,7 +369,7 @@ function searchBestBuyGroup(binKey, singleProduct){
             //Product Image
             '<td><img class="result-thumbnail" src="' + walmartImage  + '" alt = "product" width="140"></td>' +
             //Vendor
-            + walmart_logo +
+            walmart_logo +
             //Price
             '<td>$' + items[i].salePrice+ '</td>'
             +'</tr>';
